@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<style>
+    .highlight{
+        background: yellow;
+    }
+
+</style>
+
+
+<script src="../node_modules/riot/riot+compiler.js"></script>
+<script src="../dist/riot.hi-text.js"></script>
+
+
+<body>
+    <test1></test1>
+    <test2></test2>
+    <test3></test3>
+    <test4></test4>
+    <test5></test5>
+    <test6></test6>
+    <test7></test7>
+    <test8></test8>
+    <test9></test9>
+    <test10></test10>
+</body>
+
+<script type="riot/tag">
+    <test1>
+        <h1>Test with sample text</h1>
+        <hi-text>
+            JavaScript, standardized under the title of ECMAScript, is a dynamic programming language.[6]
+            It is most commonly used as part of web browsers, whose implementations allow client-side scripts to interact with the user, control the browser, communicate asynchronously, and alter the document content that is displayed.[6] JavaScript (at least the strict subset asm.js) is also considered an "assembly language of the web"[7] – a compile target of source-to-source compilers – for making client side web applications, using other programming languages, supported by all the major browsers without plug-ins. It is also used in server-side network programming with runtime environments such as Node.js, game development and the creation of desktop and mobile applications.
+        </hi-text>
+
+        var tag = this
+        var hiTextTag = tag.tags['hi-text']
+
+        tag.on('mount', function(){
+            hiTextTag
+                .setHighlight('JAVA')
+                .setHighlight('S')
+        })
+    </test1>
+</script>
+
+<script type="riot/tag">
+    <test2>
+        <h1>Test for sample text with case sensitive</h1>
+        <hi-text case-sensitive>
+            JavaScript, standardized under the title of ECMAScript, is a dynamic programming language.[6]
+            It is most commonly used as part of web browsers, whose implementations allow client-side scripts to interact with the user, control the browser, communicate asynchronously, and alter the document content that is displayed.[6] JavaScript (at least the strict subset asm.js) is also considered an "assembly language of the web"[7] – a compile target of source-to-source compilers – for making client side web applications, using other programming languages, supported by all the major browsers without plug-ins. It is also used in server-side network programming with runtime environments such as Node.js, game development and the creation of desktop and mobile applications.
+        </hi-text>
+
+        var tag = this
+        var hiTextTag = tag.tags['hi-text']
+
+        tag.on('mount', function(){
+            hiTextTag
+                .setHighlight('java')
+                .setHighlight('S')
+        })
+    </test2>
+</script>
+
+
+<script type="riot/tag">
+    <test3>
+        <h1>Test for sample text with `setHighlight args`</h1>
+        <hi-text case-sensitive>
+            JavaScript, standardized under the title of ECMAScript, is a dynamic programming language.[6]
+            It is most commonly used as part of web browsers, whose implementations allow client-side scripts to interact with the user, control the browser, communicate asynchronously, and alter the document content that is displayed.[6] JavaScript (at least the strict subset asm.js) is also considered an "assembly language of the web"[7] – a compile target of source-to-source compilers – for making client side web applications, using other programming languages, supported by all the major browsers without plug-ins. It is also used in server-side network programming with runtime environments such as Node.js, game development and the creation of desktop and mobile applications.
+        </hi-text>
+
+        var tag = this
+        var hiTextTag = tag.tags['hi-text']
+
+        tag.on('mount', function(){
+            hiTextTag
+                .setHighlight('JAVA', false)
+                .setHighlight('S', false)
+                //.clean()
+        })
+    </test3>
+</script>
+
+
+<script type="riot/tag">
+    <test4>
+        <h1>Test for sample text with `clean()`</h1>
+        <hi-text case-sensitive>
+            JavaScript, standardized under the title of ECMAScript, is a dynamic programming language.[6]
+            It is most commonly used as part of web browsers, whose implementations allow client-side scripts to interact with the user, control the browser, communicate asynchronously, and alter the document content that is displayed.[6] JavaScript (at least the strict subset asm.js) is also considered an "assembly language of the web"[7] – a compile target of source-to-source compilers – for making client side web applications, using other programming languages, supported by all the major browsers without plug-ins. It is also used in server-side network programming with runtime environments such as Node.js, game development and the creation of desktop and mobile applications.
+        </hi-text>
+
+        var tag = this
+        var hiTextTag = tag.tags['hi-text']
+
+        tag.on('mount', function(){
+            hiTextTag
+                .setHighlight('JAVA', false)
+                .setHighlight('S', false)
+                .clean()
+        })
+    </test4>
+</script>
+
+<script type="riot/tag">
+    <test4>
+        <h1>Test for sample text with `dynamic`</h1>
+        <hi-text>{text}</hi-text>
+
+        var tag = this
+        var hiTextTag = tag.tags['hi-text']
+        hiTextTag.text = `JavaScript, standardized under the title of ECMAScript, is a dynamic programming language.[6]
+            It is most commonly used as part of web browsers, whose implementations allow client-side scripts to interact with the user, control the browser, communicate asynchronously, and alter the document content that is displayed.[6] JavaScript (at least the strict subset asm.js) is also considered an "assembly language of the web"[7] – a compile target of source-to-source compilers – for making client side web applications, using other programming languages, supported by all the major browsers without plug-ins. It is also used in server-side network programming with runtime environments such as Node.js, game development and the creation of desktop and mobile applications.`
+
+        tag.on('mount', function(){
+            hiTextTag
+                .setHighlight('JAVA')
+                .setHighlight('S')
+        })
+    </test4>
+</script>
+
+<script type="riot/tag">
+    <test4>
+        <h1>Test for sample text with `in tag`</h1>
+        <hi-text>
+            <b>Java</b>Script, standardized under the title of ECMAScript, is a dynamic programming language.[6]
+            It is most commonly used as part of web browsers, whose implementations allow client-side scripts to interact with the user, control the browser, communicate asynchronously, and alter the document content that is displayed.[6] JavaScript (at least the strict subset asm.js) is also considered an "assembly language of the web"[7] – a compile target of source-to-source compilers – for making client side web applications, using other programming languages, supported by all the major browsers without plug-ins. It is also used in server-side network programming with runtime environments such as Node.js, game development and the creation of desktop and mobile applications.
+        </hi-text>
+
+        var tag = this
+        var hiTextTag = tag.tags['hi-text']
+
+        tag.on('mount', function(){
+            hiTextTag
+                .setHighlight('JAVAscript')
+        })
+    </test4>
+</script>
+
+
+<script>
+    riot.mount('*')
+</script>
