@@ -81,6 +81,7 @@
 	    var tag = this;
 	    var el = this.root;
 	    var caseSensitive = /^(true|)$/.test(opts['case-sensitive']);
+	    var className = tag.opts['class-name'] || 'highlight';
 
 	    tag.resetHTML = function () {
 	        this._html = this.root.innerHTML;
@@ -97,8 +98,6 @@
 
 	        word = word.trim();
 	        tag.hasMatched = false;
-
-	        var className = tag.opts['class-name'] || 'highlight';
 
 	        if (word.length > 1) {
 	            word = escapeRegExp(word);
@@ -170,7 +169,6 @@
 
 	    tag.on('mount', function () {
 	        tag.resetHTML();
-	        tag.trigger('mounted');
 	    });
 	});
 

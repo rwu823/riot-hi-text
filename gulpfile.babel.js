@@ -61,7 +61,7 @@ const dev = function (){
 
     bs.create()
         .init({
-            files: ['test/index.html', 'dist/riot-hi-text.js'],
+            files: ['test/index.html', 'dist/riot.hi-text.js'],
             server: {
                 baseDir: './',
                 //directory: true
