@@ -1,10 +1,10 @@
 # The highlight text component for Riot.js
 
-### Installation
+## Installation
 	npm ins --save-dev riot-hi-text
 
-### Examples
-#### Basic
+## Examples
+### Basic
 
 Import script, the standalone script files are in the `dist` .
 ```html
@@ -42,17 +42,18 @@ every `h` will warp with `<span class="highlight">`
 </hi-text>
 ```
 
-### Dynamic
+## Dynamic
 ```html
-<hi-text>{text}</hi-text>
+<app>
+	<hi-text>{text}</hi-text>
+	this.tags['hi-text'].text = 'hello hi text!!'
+</app>
 ```
-```js
 
-```
 
-### Options
+## Options
 
-**`class-name`**
+`opts['class-name']`
 
 Custom class name, default is `highlight`
 
@@ -60,8 +61,7 @@ Custom class name, default is `highlight`
 <hi-text class-name="my-highlight"></hi-text>
 ```
 
-
-**`case-sensitive`** 
+`opts['case-sensitive'] `
 
 Match word with case sensitive. default is `false`
 
@@ -73,29 +73,41 @@ equal to
 <hi-text case-sensitive></hi-text>
 ```
 
-```html
-<hi-text class-name="my-highlight"></hi-text>
-```
-### API
+## API
 
-#### setHighlight(word)
+### setHighlight(word, [case_sensitive = false])
 Set highlight with `word`
 
-#### clean
+### clean()
 Clean all highlight.
 
-#### resetHTML
-Sometimes we get data with asynchronous.  We should reset manual.
+### hasMatched
+`true` or `false`, change everytime after invoking  `setHighlight()`
 
-```js
 
+## Asynchronous
+```html
+<app>
+	<h1-text>{text}</h1-text>
+
+	var tag = this
+
+	$.ajax({
+		url: '/api/case'
+	})
+	.done(function(data){
+		tag.tags['h1-text'].text =  data
+		tag.tags['h1-text'].update()
+		tag.tags['h1-text'].setHeightlight('hi')
+	})
+</app>
 ```
 
-### With chain
+
+## With chain
 The API all return tag instance itself, so you can chain the method
 ```js
 tag
 	.clean()
 	.setHighlight('Hi')
 ```
-
