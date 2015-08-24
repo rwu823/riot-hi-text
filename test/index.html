@@ -140,6 +140,25 @@
     </test4>
 </script>
 
+<script type="riot/tag">
+    <test4>
+        <h1>Test for sample text with `async`</h1>
+        <hi-text>111{text}222</hi-text>
+
+        var tag = this
+        var hiTextTag = tag.tags['hi-text']
+
+        tag.on('mount', function(){
+            setimeout(function(){
+                hiTextTag.text = 'JavaScript, standardized under the title of ECMAScript, is a dynamic programming language.'
+                hiTextTag
+                    .resetHTML()
+                    .setHighlight('JAVAscript')
+            }, 2000)
+        })
+    </test4>
+</script>
+
 
 <script>
     riot.mount('*')
